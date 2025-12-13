@@ -34,15 +34,14 @@ func Checkbox(checks []string, title string) ([]bool, error) {
 
 	for {
 		termbox.SetCursor(0, 0)
-
-		cls() 
+		fmt.Print("\033[H\033[2J")
 		fmt.Println(title)
 
 		for i := range checks {
 			if i == currentIndex {
-				fmt.Print("> ") 
+				fmt.Print("> ")
 			} else {
-				fmt.Print("  ") 
+				fmt.Print("  ")
 			}
 			if selected[i] {
 				fmt.Printf("[x] %s\n", checks[i])
@@ -56,11 +55,16 @@ func Checkbox(checks []string, title string) ([]bool, error) {
 			case keyboard.KeySpace:
 				selected[currentIndex] = !selected[currentIndex]
 			case keyboard.KeyTab:
-				currentIndex = (currentIndex + 1) % len(checks) 
+				currentIndex = (currentIndex + 1) % len(checks)
 			case keyboard.KeyEsc:
-				return selected, nil 
+				return selected, nil
+			}
 		}
 
-		time.Sleep(100 * time.Millisecond)
+		time.Sleep(200 * time.Millisecond)
 	}
+}
+
+func Label(content string) {
+	fmt.Println(content)
 }
