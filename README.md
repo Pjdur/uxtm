@@ -4,7 +4,7 @@ A simple and lightweight Go library for building Terminal User Interfaces (TUIs)
 
 ## Features
 
-- **Component-based architecture**: Build TUIs using reusable components like checkboxes and sliders.
+- **Component-based architecture**: Build TUIs using reusable components like checkboxes, sliders, and input fields.
 - **Event handling**: Built-in support for keyboard events and focus management.
 - **Simple API**: Easy to use with a minimalistic design.
 - **Cross-platform**: Works on any terminal that supports termbox-go.
@@ -77,6 +77,10 @@ All components implement the `Component` interface:
 #### Slider
 
 - `NewSlider(label string, min, max, value int) *Slider`: Creates a new slider component.
+
+#### Input
+
+- `NewInput(title string) *Input`: Creates a new input component with a title.
 
 ## Contributing
 
